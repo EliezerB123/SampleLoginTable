@@ -11,19 +11,18 @@ import { AuthenticationService } from 'src/app/services/authentication.service';
 export class PageLoginComponent implements OnInit {
   loginForm: FormGroup;
   submitted = false;
-  // returnUrl: string;
 
   constructor(
     private formBuilder: FormBuilder,
     private router: Router,
     private authenticationService: AuthenticationService,
-    // private route: ActivatedRoute,
-    // private alertService: AlertService
   ) {
       // redirect to home if already logged in
       if (this.authenticationService.currentUserValue) {
           this.router.navigate(['/']);
       }
+
+      // Set up login form.
       this.loginForm = this.formBuilder.group({
           username: ['', Validators.required],
           password: ['', Validators.required]
@@ -36,9 +35,6 @@ export class PageLoginComponent implements OnInit {
   onSubmit() {
     this.submitted = true;
 
-    // // reset alerts on submit
-    // this.alertService.clear();
-
     // stop here if form is invalid
     if (this.loginForm.invalid) {
         return;
@@ -49,6 +45,7 @@ export class PageLoginComponent implements OnInit {
         this.router.navigate(['/']);
     },
     (error) => {
+        //TODO: Set up error handling if login fails.
         alert('Could not login.');
         console.log(error);
     });

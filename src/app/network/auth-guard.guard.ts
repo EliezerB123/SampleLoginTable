@@ -15,8 +15,7 @@ export class AuthGuard implements CanActivate {
       const currentUser = this.authenticationService.currentUserValue;
       
       if (currentUser) {
-          // We have a user, so return true.
-          // The true authentication happens inside the JWT HTTP interceptor using the user's TOKEN,
+          // Here we simply check if we have User data, but the true authentication happens inside the JWT HTTP interceptor using the user's TOKEN,
           // which happens every time we make an HTTP request.
           return true;
       }

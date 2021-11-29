@@ -8,7 +8,7 @@ const routes: Routes = [
   { path: '', component: PageTableComponent,canActivate: [AuthGuard] },
   { path: 'login', component: PageLoginComponent },
 
-  // otherwise redirect to home
+  // otherwise redirect to Table page.
   { path: '**', redirectTo: '' }
 ];
 

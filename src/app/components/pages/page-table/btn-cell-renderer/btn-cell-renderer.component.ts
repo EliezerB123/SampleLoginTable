@@ -1,25 +1,30 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { GridApi, ICellRendererParams } from 'ag-grid-community';
-import { ModifyRowFormComponent } from '../modify-row-form/modify-row-form.component';
+import { PopupModifyRowComponent } from '../popup-modify-row/popup-modify-row.component';
 
+
+/**
+ * This component is the renderer we use to create our custom column.
+ * It contains HTML for two buttons:
+ * a. Edit
+ * b. Delete
+ */
 @Component({
   selector: 'app-btn-cell-renderer',
   templateUrl: './btn-cell-renderer.component.html',
   styleUrls: ['./btn-cell-renderer.component.scss']
 })
-export class BtnCellRendererComponent implements ICellRendererAngularComp, OnDestroy, OnInit {
+export class BtnCellRendererComponent implements ICellRendererAngularComp {
   private params: any;
   private gridApi?: GridApi;
   constructor(public dialog: MatDialog){
   }
   
-  ngOnInit(){
-    this.gridApi = this.params.api;
-  }
   agInit(params: any): void {
     this.params = params;
+    this.gridApi = this.params.api;
   }
 
   refresh(params: ICellRendererParams): boolean{
@@ -27,15 +32,11 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp, OnDes
   }
 
   editBtnClickedHandler(event: any) {
-    console.log('params',this.params);
-    console.log('api',this.gridApi);
+    console.log('Opening Edit popup');
     
     const rowData = this.params.data;
     const index = this.params.rowIndex;
-    // this.gridApi?.applyTransaction({ remove: [rowData] });
-    // this.params.clicked(this.params.value);
-    // modifyRow(row: Tabledata, index:number){
-    let dialogRef = this.dialog.open(ModifyRowFormComponent, {
+    this.dialog.open(PopupModifyRowComponent, {
       height: '400px',
       width: '600px',
       data: {
@@ -47,12 +48,9 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp, OnDes
 
   deleteBtnClickedHandler(event: any) {
     const data = this.params.data;
-    //TODO: Replace confirm with popup message.
+    //TODO: Replace confirm with Angular Material dialog message.
     if (confirm('Are you sure you want to delete this?')){
       this.gridApi?.applyTransaction({ remove: [data] });
     }
-  }
-
-  ngOnDestroy() {
   }
 }

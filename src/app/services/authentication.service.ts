@@ -28,7 +28,8 @@ export class AuthenticationService {
 
   login(username: string, password: string) {
 
-    //TODO: Make a HTTP POST request.
+    //TODO: Note here we would make an HTTP post request to get a valid token. 
+    //Obviously since we have no backend, we simply accept "Password" as correct.
     const obs = new Observable((observer)=> {
       if (password == 'password'){
         const user = {user: username, token: 'ASDVADSVSfasdfaddf'};
@@ -43,7 +44,6 @@ export class AuthenticationService {
   logout() {
     // remove user from local storage and set current user to null
     console.log('Logging out.');
-    
     localStorage.removeItem('currentUser');
     this.currentUserSubject.next(null);
   }

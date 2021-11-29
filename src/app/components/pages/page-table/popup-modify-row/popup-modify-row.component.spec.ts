@@ -1,20 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ModifyRowFormComponent } from './modify-row-form.component';
+import { PopupModifyRowComponent } from './popup-modify-row.component';
 
-describe('ModifyRowFormComponent', () => {
-  let component: ModifyRowFormComponent;
-  let fixture: ComponentFixture<ModifyRowFormComponent>;
+describe('PopupModifyRowComponent', () => {
+  let component: PopupModifyRowComponent;
+  let fixture: ComponentFixture<PopupModifyRowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ ModifyRowFormComponent ]
+      declarations: [ PopupModifyRowComponent ]
     })
     .compileComponents();
   });
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(ModifyRowFormComponent);
+    fixture = TestBed.createComponent(PopupModifyRowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

@@ -11,7 +11,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { ReactiveFormsModule } from '@angular/forms';
 import { JwtInterceptor } from './network/jwt.interceptor';
 import { BtnCellRendererComponent } from './components/pages/page-table/btn-cell-renderer/btn-cell-renderer.component';
-import { ModifyRowFormComponent } from './components/pages/page-table/modify-row-form/modify-row-form.component';
+import { PopupModifyRowComponent } from './components/pages/page-table/popup-modify-row/popup-modify-row.component';
 import {MatDialogModule} from '@angular/material/dialog';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -22,7 +22,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     PageLoginComponent,
     TableComponent,
     BtnCellRendererComponent,
-    ModifyRowFormComponent,
+    PopupModifyRowComponent,
   ],
   imports: [
     BrowserModule,

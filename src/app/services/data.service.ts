@@ -19,20 +19,10 @@ export class DataService {
       this.data = data;
       this.data$.next(data);
     });
-    
-    // (observer) => {
-      //If the data is already cached, return that.
-      // if (this.data){
-      //   observer.next(this.data);
-      // } else{
-        // observer.next(data);
-      // }
-    // });
   }
 
 
   getData(): ReplaySubject<Tabledata[]>{
-
     return this.data$;
   }
 
