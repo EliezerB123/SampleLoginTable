@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { ICellRendererAngularComp } from 'ag-grid-angular';
 import { GridApi, ICellRendererParams } from 'ag-grid-community';
+import { Tabledata } from 'src/app/models/tabledata';
 import { PopupModifyRowComponent } from '../popup-modify-row/popup-modify-row.component';
 
 
@@ -34,8 +35,8 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp {
   editBtnClickedHandler(event: any): void {
     console.log('Opening Edit popup');
     
-    const rowData = this.params.data;
-    const index = this.params.rowIndex;
+    const rowData: Tabledata = this.params.data;
+    const index: number = this.params.rowIndex;
     this.dialog.open(PopupModifyRowComponent, {
       height: '400px',
       width: '600px',
