@@ -7,10 +7,14 @@ The table is pretty self-explanatory, but the login is a bit complicated, so I'v
 Login Flow:
 1. If user tries to access any other page other than "Login" while not logged in, he'll be redirected to the login page. (app-routing.module.ts and src/app/network/auth-guard.guard.ts)
 2. He gets redirected to the login page: src/app/components/pages/page-login/page-login.component.html
-3. User signs in. 
+3. User signs in. This is what happens next:
+
 3a. (Using the service src/app/services/authentication.service.ts, we create a mock post request, and save his username and token.)
+
 3b. We also save the token into localstorage, so next time the user refreshes the page, he can skip the login screen. (See src/app/app.component.ts)
+
 3c. At this point, using the interceptor (src/app/network/jwt.interceptor.ts), we start adding his TOKEN to all future requests he makes. 
+
 4. After successfully logging in, he gets redirected to the page-table.
 
 
