@@ -1,0 +1,16 @@
+<h1>Table Page</h1>
+<input type="text" placeholder="Search for text" (input)="onFilterTextBoxChanged($event)" />
+<button (click)="openNewRowModal()"> Create new row</button>
+<ag-grid-angular
+    style="width: auto; height: 600px;"
+    class="ag-theme-alpine"
+    [rowData]="rowData"
+    [columnDefs]="columnDefs"
+    [pagination]="true"
+    [paginationAutoPageSize]="true"
+    [frameworkComponents]="frameworkComponents"
+    (gridReady)="onGridReady($event)"
+
+>
+</ag-grid-angular>
+<!-- <app-modify-row-form [rowData]="{make: 'fish', model:'fishesTwo',price:500, index:3}"></app-modify-row-form> -->

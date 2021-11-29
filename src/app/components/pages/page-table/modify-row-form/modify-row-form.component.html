@@ -1,0 +1,17 @@
+<form [formGroup]="this.form">
+    <h2>{{rowData? "Modifying": "Creating new"}} Car</h2>
+  
+    <div class="form-group">
+        <label for="make">make: </label>
+        <input id="make" type="text" formControlName="make">
+    </div>
+    <div class="form-group">
+        <label for="model">model: </label>
+        <input id="model" type="text" formControlName="model">
+    </div>  
+    <div class="form-group">
+        <label for="price">price: </label>
+        <input id="price" type="text" formControlName="price">
+    </div>
+    <button (click)="save()" class="btn btn-primary">Save</button>
+</form>
