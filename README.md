@@ -2,7 +2,7 @@ Generated using Angular 12.
 
 This.. is rather complex, because of course we're implementing a full fledged login and Auth Guard.
 
-The table is pretty self-explanatory, but the login is a bit complicated, so I've explained it here:
+The table is pretty self-explanatory, but the login is a bit complicated, so I've written a basic overview here:
 
 Login Flow:
 1. If user tries to access any other page other than "Login" while not logged in, he'll be redirected to the login page. (app-routing.module.ts and src/app/network/auth-guard.guard.ts)
