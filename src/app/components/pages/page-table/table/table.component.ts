@@ -44,14 +44,14 @@ export class TableComponent implements OnInit {
   ngOnInit(): void {
   }
   
-  onGridReady(params: any) {
+  onGridReady(params: any): void {
     this.gridApi = params.api;
     this.dataService.getData().subscribe((data)=>{
       this.gridApi?.setRowData(data);
     });
   }
 
-   onFilterTextBoxChanged(event:any) {
+   onFilterTextBoxChanged(event:any): void {
      //TODO: Rewrite this to use an Angular Reactive form instead of a basic <input>.
      //TODO: Add autocomplete. We can get it from "this.dataService.data".
     const text = event.target.value.toString();
@@ -59,7 +59,7 @@ export class TableComponent implements OnInit {
   }
 
 
-  openNewRowModal(){
+  openNewRowModal(): void{
     this.dialog.open(PopupModifyRowComponent, {
       height: '400px',
       width: '600px',

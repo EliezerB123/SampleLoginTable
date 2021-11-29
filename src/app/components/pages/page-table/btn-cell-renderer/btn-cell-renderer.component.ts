@@ -31,7 +31,7 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp {
     return false;
   }
 
-  editBtnClickedHandler(event: any) {
+  editBtnClickedHandler(event: any): void {
     console.log('Opening Edit popup');
     
     const rowData = this.params.data;
@@ -46,7 +46,7 @@ export class BtnCellRendererComponent implements ICellRendererAngularComp {
     });
   }
 
-  deleteBtnClickedHandler(event: any) {
+  deleteBtnClickedHandler(event: any): void {
     const data = this.params.data;
     //TODO: Replace confirm with Angular Material dialog message.
     if (confirm('Are you sure you want to delete this?')){

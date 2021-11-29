@@ -32,7 +32,7 @@ export class PageLoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onSubmit() {
+  onSubmit(): void {
     this.submitted = true;
 
     // stop here if form is invalid
